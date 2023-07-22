@@ -1,10 +1,33 @@
-### Purpose: Apply 3 different Normalization methods.
+### Purpose: Use Residual block and create a CNN model for training on CiFAR 10 dataset.
 
 ## Based on CiFAR 10 dataset
-### Create 3 different one for each Normalization methods:- 
-- Batch Normalization
-- Group Normalization
-- Linear Normalization
+### Basic structure for the model:- 
+-   PrepLayer - Conv 3x3 s1, p1) >> BN >> RELU [64k]
+-   Layer1 - <br/>
+    X = Conv 3x3 (s1, p1) >> MaxPool2D >> BN >> RELU [128k]  <br/>
+    R1 = ResBlock( (Conv-BN-ReLU-Conv-BN-ReLU))(X) [128k]  <br/>
+-   Add(X, R1)
+-   Layer 2 -
+    Conv 3x3 [256k]  <br/>
+    MaxPooling2D <br/>
+    BN <br/>
+    ReLU <br/>
+-   Layer 3 -
+    X = Conv 3x3 (s1, p1) >> MaxPool2D >> BN >> RELU [512k] <br/>
+    R2 = ResBlock( (Conv-BN-ReLU-Conv-BN-ReLU))(X) [512k] <br/>
+    Add(X, R2) <br/>
+    MaxPooling with Kernel Size 4 <br/>
+-   FC Layer 
+-   SoftMax
+Uses One Cycle Policy such that: <br/>
+Total Epochs = 24 <br/>
+Max at Epoch = 5 <br/>
+LRMIN = FIND <br/>
+LRMAX = FIND <br/>
+NO Annihilation <br/>
+Uses this transform -RandomCrop 32, 32 (after padding of 4) >> FlipLR >> Followed by CutOut(8, 8) <br/>
+Batch size = 512 <br/>
+Use ADAM, and CrossEntropyLoss <br/>
 
 ### Project Setup:
 Clone the project as shown below:-
@@ -30,38 +53,18 @@ About the file structure</br>
    __plot_metrics.py<br/>
    __test.py<br/>
    __train.py<br/>
-|__S8.ipynb<br/>
-|__README.nd<br/>
+|__CiFAR_S10.ipynb<br/>
+|__README.md<br/>
 
 **NOTE:** List of libraries required: ***torch*** and ***torchsummary***, ***tqdm*** for progress bar, which are installed using requirements.txt<br/>
 
 One of 2 ways to run any of the notebooks, for instance **S8.ipynb** notebook:<br/>
-1. Using Anaconda prompt - Run as an **administrator** start jupyter notebook from the folder ***era_v1_session8_pankaja*** and run it off of your localhost<br/>
+1. Using Anaconda prompt - Run as an **administrator** start jupyter notebook from the folder ***era_v1_session10_pankaja*** and run it off of your localhost<br/>
 **NOTE:** Without Admin privileges, the installs will not be correct and further import libraries will fail. <br/>
 ```
 jupyter notebook
 ```
-2. Upload the notebook folder ***era_v1_session8_pankaja*** to google colab at [colab.google.com](https://colab.research.google.com/) and run it on colab<br/>
-
-###
-**Context:** The drill down analysis starts from Step 0 through Step 6 and the analysis is laid out as Target, Results and Analysis. <br />
-- Target: what is the target we are setting up as
-- Results: what results we are getting
-- Analysis: basically analyzing what we are doing in the model in this step, what is the algorithm etc.,
-
-### Batch Normalization:
-**File used: models/model.py, model with Net1 Class**
-<p>
-Target:
-- create a model with Batch Normalization as the normalization method
-
-Results:
-- Total parameters: 52,576
-- Train accuracy of  and test accuracy of 77.69
-
-Analysis:
-- To see how the accuracy is using Batch Normalization method.
-</p>
+2. Upload the notebook folder ***era_v1_session10_pankaja*** to google colab at [colab.google.com](https://colab.research.google.com/) and run it on colab<br/>
 
 ### Group Normalization:
 **File used: models/model.py, model with Net2 Class**
@@ -70,26 +73,13 @@ Target:
 - create a model with Group Normalization as the normalization method
 
 Results:
-- Total parameters: 52,576
-- Train accuracy of  and test accuracy of 77.69
+- Total parameters: 6,573,120
+- Train accuracy of 88.14 and test accuracy of 89.38
 
 Analysis:
-- To see how the accuracy is using Group Normalization method.
+- To see how the accuracy using residual blocks.
 </p>
 
-### Linear Normalization:
-**File used: models/model.py, model with Net3 Class**
-<p>
-Target:
-- create a model with Linear Normalization as the normalization method
-
-Results:
-- Total parameters: 52,576
-- Train accuracy of  and test accuracy of 77.69
-
-Analysis:
-- To see how the accuracy is using Linear Normalization method.
-</p>
 
 ### Contributing:
 For any questions, bug(even typos) and/or features requests do not hesitate to contact me or open an issue!
