@@ -47,7 +47,7 @@ About the file structure</br>
 |__models<br/>
    __model.py<br/>
 |__utils<br/>
-   __dataset.py<br/
+   __dataset.py<br/>
    __engine.py<br/>
    __helper.py<br/>
    __plot_metrics.py<br/>
