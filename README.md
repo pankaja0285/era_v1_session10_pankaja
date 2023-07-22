@@ -90,9 +90,6 @@ Results:
 Analysis:
 - To see how the accuracy is using Linear Normalization method.
 </p>
-- [An Intuitive Explanation of Convolutional Neural Networks](https://ujjwalkarn.me/2016/08/11/intuitive-explanation-convnets/)
-- [Stanford CS231n](https://cs231n.github.io/convolutional-networks/)
-- [Stanford CS231n Winter 2016 - Karpathy](https://youtu.be/NfnWJUyUJYU)
 
 ### Contributing:
 For any questions, bug(even typos) and/or features requests do not hesitate to contact me or open an issue!
