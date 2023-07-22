@@ -33,8 +33,8 @@ Use ADAM, and CrossEntropyLoss <br/>
 Clone the project as shown below:-
 
 ```bash
-$ git clone git@github.com:pankaja0285/era_v1_session8_pankaja.git
-$ cd era_v1_session8_pankaja
+$ git clone git@github.com:pankaja0285/era_v1_session10_pankaja.git
+$ cd era_v1_session10_pankaja
 ```
 About the file structure</br>
 |__config
@@ -58,7 +58,7 @@ About the file structure</br>
 
 **NOTE:** List of libraries required: ***torch*** and ***torchsummary***, ***tqdm*** for progress bar, which are installed using requirements.txt<br/>
 
-One of 2 ways to run any of the notebooks, for instance **S8.ipynb** notebook:<br/>
+One of 2 ways to run any of the notebooks, for instance **CiFAR_S10.ipynb** notebook:<br/>
 1. Using Anaconda prompt - Run as an **administrator** start jupyter notebook from the folder ***era_v1_session10_pankaja*** and run it off of your localhost<br/>
 **NOTE:** Without Admin privileges, the installs will not be correct and further import libraries will fail. <br/>
 ```
@@ -66,18 +66,18 @@ jupyter notebook
 ```
 2. Upload the notebook folder ***era_v1_session10_pankaja*** to google colab at [colab.google.com](https://colab.research.google.com/) and run it on colab<br/>
 
-### Group Normalization:
-**File used: models/model.py, model with Net2 Class**
+### Implementing Residual Block:
+**File used: models/model.py, model with Net Class and CiFAR_S10.ipynb**
 <p>
 Target:
-- create a model with Group Normalization as the normalization method
+- create a model with Residual block
 
 Results:
 - Total parameters: 6,573,120
 - Train accuracy of 88.14 and test accuracy of 89.38
 
 Analysis:
-- To see how the accuracy using residual blocks.
+- To see how the accuracy is, using residual blocks.
 </p>
 
 
