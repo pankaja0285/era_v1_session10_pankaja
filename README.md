@@ -39,14 +39,14 @@ $ cd era_v1_session10_pankaja
 About the file structure</br>
 |__config
    __config.yaml<br/>
-|__data
-|__data_analysis
-|__data_loader
+|__data<br/>
+|__data_analysis<br/>
+|__data_loader<br/>
    __load_data.py<br/>
    __albumentation.py<br/>
-|__models
+|__models<br/>
    __model.py<br/>
-|__utils
+|__utils<br/>
    __dataset.py<br/
    __engine.py<br/>
    __helper.py<br/>
